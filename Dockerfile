@@ -3,6 +3,8 @@ FROM node:12
 # Set working directory
 WORKDIR /app
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Add source code files to WORKDIR
 COPY . .
 RUN yarn install
