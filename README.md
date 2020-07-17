@@ -3,6 +3,7 @@
 ## Usage
 
 start server
-'''bash
+
+```bash
 yarn install
-'''
+```
