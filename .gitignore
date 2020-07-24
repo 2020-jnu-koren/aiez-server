@@ -120,3 +120,6 @@ dist
 
 # DB files
 uploads/
+
+# eslint config
+.eslintrc.js
