@@ -17,8 +17,8 @@ export const signIn = async (req, res, next) => {
       await User.register(user, password);
       next();
     } catch (err) {
-      console.log(err);
-      res.status(400).send("Error register User");
+      console.log(err.message);
+      res.status(400).send(err.message);
     }
   }
 };
