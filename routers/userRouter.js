@@ -1,9 +1,11 @@
 import express from "express";
+import routes from "../router";
+import { signIn, postLogin } from "../controllers/userControler";
 
 const userRouter = express.Router();
 
 userRouter.get("/", (req, res) => res.send("user index"));
-userRouter.get("/edit", (req, res) => res.send("user edit"));
-userRouter.get("/password", (req, res) => res.send("user password"));
+userRouter.post(routes.users.signin, signIn, postLogin);
+userRouter.post(routes.users.login, postLogin);
 
 export default userRouter;

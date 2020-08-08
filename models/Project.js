@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const ProjectSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+  title: {
+    type: String,
+    required: "Project name is requiered"
   },
   images: [
     {
@@ -11,6 +11,10 @@ const ProjectSchema = new mongoose.Schema({
       ref: "Image"
     }
   ],
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
   createdAt: {
     type: Date,
     default: Date.now
