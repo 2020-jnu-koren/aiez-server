@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const VideoSchema = new mongoose.Schema({
   fileUrl: {
@@ -23,7 +23,11 @@ const VideoSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Comment" // 어느 스키마에서 온건지 알려줘야함. (Comment)
     }
-  ]
+  ],
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 const model = mongoose.model("Video", VideoSchema);

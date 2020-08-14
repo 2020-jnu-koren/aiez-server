@@ -26,6 +26,8 @@
     "multer": "^1.4.2",
     "node-sass": "^4.14.1",
     "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-github": "^1.1.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
     "postcss-loader": "^3.0.0",
@@ -35,7 +37,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
     "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "cross-env WEBPACK_ENV=production webpack"
   },
@@ -49,5 +51,5 @@
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5"
   },
-  "repository": "https://github.com/itlockit2/aiez_server.git"
+  "repository": "https://github.com/2020-jnu-koren/aiez-server"
 }
