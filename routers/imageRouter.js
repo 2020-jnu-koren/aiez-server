@@ -1,14 +1,17 @@
 import express from "express";
-import { uploadImage } from "../middleware";
-import routes from "../router";
-import { postImage } from "../controllers/imageControler";
+import { uploadImage, onlyPrivate, uploadImages } from "../middleware";
+import {
+  postImage,
+  getImage,
+  deleteImage,
+  postMultiImage
+} from "../controllers/imageControler";
 
 const imageRouter = express.Router();
 
-imageRouter.get("/", (req, res) => {
-  res.send("image api");
-});
-
-imageRouter.post(routes.image.upload, uploadImage, postImage);
+imageRouter.post("/multi", onlyPrivate, uploadImages, postMultiImage);
+imageRouter.get("/", onlyPrivate, getImage);
+imageRouter.post("/", onlyPrivate, uploadImage, postImage);
+imageRouter.delete("/", onlyPrivate, deleteImage);
 
 export default imageRouter;

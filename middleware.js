@@ -1,5 +1,4 @@
 import multer from "multer";
-import routes from "./router";
 
 const multerImage = multer({
   storage: multer.diskStorage({
@@ -27,6 +26,7 @@ export const onlyPublic = (req, res, next) => {
 
 export const onlyPrivate = (req, res, next) => {
   if (req.user) {
+    console.log("onlyPrivate");
     next();
   } else {
     res.status(401).send("Unauthorized");

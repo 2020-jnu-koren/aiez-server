@@ -47,6 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Router
+app.use("/image", express.static("upload/images"));
 app.use(routes.home, globalRouter);
 app.use(routes.users.users, userRouter);
 app.use(routes.image.images, imageRouter);

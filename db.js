@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const MONGO_CONNECT = `mongodb://${process.env.DB_HOST}:${process.env.DB_PASSWOD}@${process.env.MONGO_URL}?authSource=admin&authMechanism=SCRAM-SHA-1`;
+const MONGO_CONNECT = `mongodb://${process.env.MONGO_URL}`;
 console.log("MONGO_CONNECT : ", MONGO_CONNECT);
 mongoose
   .connect(MONGO_CONNECT, {
