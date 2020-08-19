@@ -23,6 +23,16 @@ export const signIn = async (req, res, next) => {
   }
 };
 
+export const getMe = async (req, res, next) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+    res.send(user);
+  } catch (err) {
+    console.log("[ImageControler] (postImage) err : ", err);
+    res.status(400).send("get user data error");
+  }
+};
+
 export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home
 });
