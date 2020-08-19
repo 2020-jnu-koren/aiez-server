@@ -21,5 +21,12 @@ const ProjectSchema = new mongoose.Schema({
   }
 });
 
+ProjectSchema.methods.addImages = function (imageId) {
+  if (!this.images.includes(imageId)) {
+    this.images.push(imageId);
+    return this.save();
+  }
+};
+
 const model = mongoose.model("Project", ProjectSchema);
 export default model;

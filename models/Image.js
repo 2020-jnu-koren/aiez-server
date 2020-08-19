@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
 
 const ImageSchema = new mongoose.Schema({
-  fileUrl: {
+  path: {
     type: String,
     required: "File URL is required"
-  },
-  title: {
-    type: String,
-    required: "Title is requred"
   },
   createdAt: {
     type: Date,
@@ -17,7 +13,7 @@ const ImageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
-  project: {
+  projectId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project"
   }
