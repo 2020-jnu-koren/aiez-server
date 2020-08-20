@@ -41,8 +41,8 @@ export const getImage = async (req, res) => {
     body: { id }
   } = req;
   try {
-    const Image = await Image.findById(id);
-    res.send(Image);
+    const getImage = await Image.findById({ _id: id });
+    res.send(getImage);
   } catch (err) {
     console.log("[ImageControler] (postImage) err : ", err);
     res.status(400).send("get Image error");
@@ -54,8 +54,8 @@ export const deleteImage = async (req, res) => {
     body: { id }
   } = req;
   try {
-    const Image = await Image.findOneAndRemove({ _id: id });
-    res.send(Image);
+    const removeImage = await Image.findOneAndRemove({ _id: id });
+    res.send(removeImage);
   } catch (err) {
     console.log("[ImageControler] (postImage) err : ", err);
     res.status(400).send("remove Image error");
