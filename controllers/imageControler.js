@@ -61,3 +61,17 @@ export const deleteImage = async (req, res) => {
     res.status(400).send("remove Image error");
   }
 };
+
+export const addLabel = async (req, res) => {
+  const {
+    body: { id, label }
+  } = req;
+  try {
+    const getImage = await Image.findById({ _id: id });
+    getImage.addLabel(label);
+    res.send(getImage);
+  } catch (err) {
+    console.log("[ImageControler] (addLabel) err : ", err);
+    res.status(400).send("remove Image error");
+  }
+};
