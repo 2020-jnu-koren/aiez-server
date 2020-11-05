@@ -19,12 +19,19 @@ import projectRouter from "./routers/projectRouter";
 const app = express();
 const CokieStore = MongoStore(session);
 
+// CORS 허용
+app.all("/*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 // Parser
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 // Flash
@@ -39,7 +46,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CokieStore({ mongooseConnection: mongoose.connection })
+    store: new CokieStore({ mongooseConnection: mongoose.connection }),
   })
 );
 // Passport

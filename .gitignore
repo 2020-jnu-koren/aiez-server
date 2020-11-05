@@ -117,3 +117,5 @@ dist
 
 mongodb/*
 upload/*
+
+.ipynb_checkpoints/
