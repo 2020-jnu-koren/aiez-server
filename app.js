@@ -15,16 +15,17 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./router";
 import "./passport";
 import projectRouter from "./routers/projectRouter";
-
+var cors = require('cors');
 const app = express();
+app.use(cors())
 const CokieStore = MongoStore(session);
 
-// CORS 허용
-app.all("/*", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+// // CORS 허용
+// app.all("/*", function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   next();
+// });
 
 // Parser
 app.use(cookieParser());
