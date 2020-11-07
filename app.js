@@ -15,9 +15,10 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./router";
 import "./passport";
 import projectRouter from "./routers/projectRouter";
-var cors = require('cors');
+import cors from "cors";
+
+// var cors = require('cors');
 const app = express();
-app.use(cors())
 const CokieStore = MongoStore(session);
 
 // // CORS 허용
@@ -26,7 +27,7 @@ const CokieStore = MongoStore(session);
 //   res.header("Access-Control-Allow-Headers", "X-Requested-With");
 //   next();
 // });
-
+app.use(cors())
 // Parser
 app.use(cookieParser());
 app.use(bodyParser.json());
