@@ -17,22 +17,14 @@ import "./passport";
 import projectRouter from "./routers/projectRouter";
 import cors from "cors";
 
-// var cors = require('cors');
 const app = express();
 const CokieStore = MongoStore(session);
 
-// // CORS 허용
-// app.all("/*", function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   next();
-// });
-// app.use(cors({ origin: '*' }));
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://2020-jnu-koren.github.io/aiez-client/",
+      "https://2020-jnu-koren.github.io/aiez-client/"
     ],
     credentials: true,
     exposedHeaders: "Content-Range"
@@ -43,7 +35,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: true,
+    extended: true
   })
 );
 // Flash
@@ -58,7 +50,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CokieStore({ mongooseConnection: mongoose.connection }),
+    store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
 );
 // Passport
