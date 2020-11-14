@@ -33,10 +33,21 @@ export const getMe = async (req, res, next) => {
   }
 };
 
-export const postLogin = passport.authenticate(
-  "local",
-  { session: true },
-  {
-    successRedirect: routes.home
-  }
-);
+export const login = (req, res, next) => {
+  passport.authenticate("local", { session: true }, (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+
+    if (!user) {
+      return res.status(401).send("Fail to login");
+    }
+
+    req.login(user, err => {
+      if (err) {
+        return res.status(401).send(info.message);
+      }
+      return res.status(200).send(user);
+    });
+  })(req, res, next);
+};
