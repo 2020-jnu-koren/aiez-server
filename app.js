@@ -27,7 +27,6 @@ const CokieStore = MongoStore(session);
 //   res.header("Access-Control-Allow-Headers", "X-Requested-With");
 //   next();
 // });
-// app.use(cors({ origin: '*' }));
 app.use(
   cors({
     origin: [
