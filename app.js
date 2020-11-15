@@ -47,13 +47,12 @@ app.use(helmet());
 // Session
 app.use(
   session({
-    secret: process.env.COOKIE_SECRET,
+    secret: "kJ`+=Mj3t}<*8A6fuW{z9}z16iqxC3",
     resave: true,
     saveUninitialized: false,
     cookie: {
       secure: false,
-      httpOnly: true,
-      domain: "http://localhost:3000"
+      httpOnly: false
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
