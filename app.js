@@ -53,7 +53,8 @@ app.use(
     cookie: {
       secure: false,
       httpOnly: false,
-      sameSite: "none"
+      sameSite: "lax",
+      domain: "localhost"
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
