@@ -52,8 +52,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: false,
-      httpOnly: false,
-      sameSite: "lax",
+      httpOnly: true,
       domain: "localhost"
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
