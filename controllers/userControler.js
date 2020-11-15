@@ -1,6 +1,5 @@
 import passport from "passport";
 import User from "../models/User";
-import routes from "../router";
 
 export const signIn = async (req, res, next) => {
   const {
@@ -33,7 +32,7 @@ export const getMe = async (req, res, next) => {
   }
 };
 
-export const login = (req, res, next) => {
+export const postLogin = (req, res, next) => {
   passport.authenticate("local", { session: true }, (err, user, info) => {
     if (err) {
       return next(err);
