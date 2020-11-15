@@ -52,7 +52,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: false,
-      httpOnly: false
+      httpOnly: false,
+      sameSite: "none"
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
