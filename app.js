@@ -50,6 +50,11 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
+    cookie: {
+      secure: false,
+      httpOnly: true,
+      domain: "localhost"
+    },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
 );
