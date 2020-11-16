@@ -11,7 +11,7 @@ export const postImage = async (req, res) => {
     const newImage = await Image.create({
       path,
       projectId,
-      creator: req.user.id
+      creator: req.user._id
     });
     res.send(newImage);
   } catch (err) {
@@ -26,7 +26,7 @@ export const postMultiImage = async (req, res) => {
   } = req;
   try {
     const result = map(req.files, item => {
-      return { path: item.path, projectId, creator: req.user.id };
+      return { path: item.path, projectId, creator: req.user._id };
     });
     const newImage = await Image.create(result);
     res.send(newImage);

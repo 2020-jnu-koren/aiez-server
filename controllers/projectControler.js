@@ -7,9 +7,9 @@ export const postProject = async (req, res) => {
   try {
     const newProject = await Project.create({
       title,
-      creator: req.user.id
+      creator: req.user._id
     });
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user._id);
     user.addProject(newProject._id);
     res.send(newProject);
   } catch (err) {
@@ -33,7 +33,7 @@ export const getProject = async (req, res) => {
 
 export const getProjectByUserId = async (req, res) => {
   try {
-    const project = await Project.find({ creator: req.user.id });
+    const project = await Project.find({ creator: req.user._id });
     res.send(project);
   } catch (err) {
     console.log("[projectControler] (postProject) err : ", err);

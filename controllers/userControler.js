@@ -9,11 +9,9 @@ export const signIn = async (req, res, next) => {
     res.status(400).send("Passwords do not match");
   } else {
     try {
-      const user = await User({
-        name,
-        email
-      });
-      await User.register(user, password);
+      const createdUser = new User({ name, email, password });
+      await createdUser.save();
+      req.user = createdUser;
       next();
     } catch (err) {
       console.log(err.message);
@@ -24,10 +22,11 @@ export const signIn = async (req, res, next) => {
 
 export const getMe = async (req, res, next) => {
   try {
-    const user = await User.findById({ _id: req.user.id });
+    console.log("req.user : ", req.user);
+    const user = await User.findById({ _id: req.user._id });
     res.send(user);
   } catch (err) {
-    console.log("[ImageControler] (postImage) err : ", err);
+    console.log("[userControler] (getMe) err : ", err);
     res.status(400).send("get user data error");
   }
 };
