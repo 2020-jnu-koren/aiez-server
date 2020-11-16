@@ -52,8 +52,7 @@ app.use(
     proxy: true,
     cookie: {
       secure: false,
-      httpOnly: true,
-      domain: "localhost"
+      httpOnly: true
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
