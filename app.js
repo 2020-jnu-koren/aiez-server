@@ -52,11 +52,13 @@ app.use(
     proxy: true,
     cookie: {
       secure: false,
-      httpOnly: true
+      httpOnly: true,
+      domain: ".2020-jnu-koren.github.io"
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
 );
+cookieParsercookieParser;
 // Passport
 app.use(passport.initialize());
 app.use(passport.session());
