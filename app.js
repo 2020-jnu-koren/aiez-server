@@ -52,8 +52,7 @@ app.use(
     proxy: true,
     cookie: {
       secure: false,
-      httpOnly: true,
-      domain: ".2020-jnu-koren.github.io"
+      httpOnly: true
     },
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
