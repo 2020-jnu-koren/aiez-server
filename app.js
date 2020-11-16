@@ -62,7 +62,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Router
-app.use("/image", express.static("upload/images"));
+app.use("/api/v1/image", express.static("upload/images"));
 app.use("/api/v1", globalRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/images", imageRouter);
