@@ -1,17 +1,17 @@
 // Global
-const HOME = "/";
-const LOGIN = "/login";
+const HOME = "api/v1/";
+const LOGIN = "api/v1/login";
 
 // Users
-const USERS = "/users";
-const SIGNIN = "/signin";
+const USERS = "api/v1/users";
+const SIGNIN = "api/v1/signin";
 
 // IMAGES
-const IMAGES = "/images";
-const UPLOAD = "/upload";
+const IMAGES = "api/v1/images";
+const UPLOAD = "api/v1/upload";
 
 // Projects
-const PROJECTS = "/projects";
+const PROJECTS = "api/v1/projects";
 
 const routes = {
   home: HOME,
