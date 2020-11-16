@@ -22,6 +22,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://116.89.189.12/",
       "https://2020-jnu-koren.github.io/aiez-client/"
     ],
     credentials: true
