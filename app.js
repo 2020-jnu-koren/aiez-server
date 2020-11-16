@@ -63,9 +63,9 @@ app.use(passport.session());
 
 // Router
 app.use("/image", express.static("upload/images"));
-app.use(routes.home, globalRouter);
-app.use(routes.users.users, userRouter);
-app.use(routes.image.images, imageRouter);
-app.use(routes.projects.projects, projectRouter);
+app.use("/api/v1", globalRouter);
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/images", imageRouter);
+app.use("/api/v1/projects", projectRouter);
 
 export default app;

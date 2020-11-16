@@ -1,10 +1,10 @@
 // Global
-const HOME = "api/v1/";
-const LOGIN = "api/v1/login";
+const HOME = "/";
+const LOGIN = "/login";
 
 // Users
-const USERS = "api/v1/users";
-const SIGNIN = "api/v1/signin";
+const USERS = "users";
+const SIGNIN = "signin";
 
 // IMAGES
 const IMAGES = "api/v1/images";
