@@ -45,6 +45,8 @@ export const postLogin = (req, res, next) => {
       if (err) {
         return res.status(401).send(info.message);
       }
+      console.log("[userControler] (req.login) user : ", user);
+      res.user = user;
       return res.status(200).send(user);
     });
   })(req, res, next);
