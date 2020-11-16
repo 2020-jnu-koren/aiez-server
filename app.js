@@ -49,6 +49,7 @@ app.use(
     secret: "kJ`+=Mj3t}<*8A6fuW{z9}z16iqxC3",
     resave: true,
     saveUninitialized: false,
+    proxy: true,
     cookie: {
       secure: false,
       httpOnly: true,
