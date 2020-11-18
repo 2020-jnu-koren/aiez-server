@@ -1,5 +1,6 @@
 import Image from "../models/Image";
-import { map } from "lodash";
+import Project from "../models/Project";
+import { forEach, map } from "lodash";
 export const postImage = async (req, res) => {
   const {
     body: { projectId },
@@ -25,12 +26,17 @@ export const postMultiImage = async (req, res) => {
     body: { projectId }
   } = req;
   try {
+    const insertProject = await Project.findById({ _id: projectId });
+
     console.log("req.files : ", res.files);
     const result = map(req.files, item => {
       return { path: item.path, projectId, creator: req.user._id };
     });
-    console.log("result : ", result);
     const newImage = await Image.create(result);
+    console.log("newImage : ", newImage);
+    forEach(newImage, image => {
+      insertProject.addImages(image._id);
+    });
     res.send(newImage);
   } catch (err) {
     console.log("[ImageControler] (postImage) err : ", err);
@@ -39,9 +45,7 @@ export const postMultiImage = async (req, res) => {
 };
 
 export const getImage = async (req, res) => {
-  const {
-    body: { id }
-  } = req;
+  const id = req.query.id;
   try {
     const getImage = await Image.findById({ _id: id });
     res.send(getImage);

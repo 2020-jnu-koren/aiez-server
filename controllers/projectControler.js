@@ -19,11 +19,9 @@ export const postProject = async (req, res) => {
 };
 
 export const getProject = async (req, res) => {
-  const {
-    body: { id }
-  } = req;
+  const id = req.query.id;
   try {
-    const project = await Project.findById(id);
+    const project = await Project.findById({ _id: id });
     res.send(project);
   } catch (err) {
     console.log("[projectControler] (postProject) err : ", err);
